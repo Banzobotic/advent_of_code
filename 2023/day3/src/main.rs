@@ -169,7 +169,7 @@ fn a_new() {
                     .flat_map(|l| re
                         .find_iter(l)
                         .filter(|m| i <= m.end() && m.start() <= i + 1)
-                        .map(|m| l[m.range()].parse::<u32>().unwrap()))
+                        .map(|m| m.as_str().parse::<u32>().unwrap()))
                     .sum::<u32>()))
             .sum::<u32>()
     );
@@ -191,7 +191,7 @@ fn b_new() {
                     .flat_map(|l| re
                         .find_iter(l)
                         .filter(|m| i <= m.end() && m.start() <= i + 1)
-                        .map(|m| l[m.range()].parse::<u32>().unwrap()))
+                        .map(|m| m.as_str().parse::<u32>().unwrap()))
                     .fold((0, 1), |(count, product), x| (count + 1, product * x))))
             .filter(|(count, _)| *count == 2)
             .fold(0, |sum, (_, x)| sum + x)
