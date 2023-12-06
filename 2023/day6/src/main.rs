@@ -21,7 +21,7 @@ fn a() {
 }
 
 fn b() {
-    let (t, d) = include_str!("input2")
+    let (t, d) = include_str!("input")
         .lines()
         .map(|l| {
             l.split_whitespace()
@@ -42,7 +42,7 @@ fn b() {
 }
 
 fn b_maths() {
-    let (t, d) = include_str!("input2")
+    let (t, d) = include_str!("input")
         .lines()
         .map(|l| {
             l.split_whitespace()
