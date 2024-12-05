@@ -1,0 +1,58 @@
+let input = read("input");
+
+split(input, "\n\n");
+
+let n = split_into("split"[0], "\n", "rules");
+for i in 0>n {
+    split_into("rules"[i], "|", "rule");
+    num("rule"[0])[num("rule"[1])] = true;
+}
+
+let sum = 0;
+let n = split_into("split"[1], "\n", "orders");
+let k = 0;
+for i in 0>n {
+    let m = split_into("orders"[i], ",", "order");
+    for j in 0>m {
+         "order"[j] = num("order"[j]);
+    }
+
+    let check_order = fn (m) {
+        for i in 1>m {
+            for j in 0>i {
+                if "order"[i]["order"[j]] {
+                    return false;
+                }
+            }
+        }
+        return true;
+    };
+
+    if check_order(m) {
+        sum = sum + "order"[m / 2 - 0.5];
+    } else {
+        "wrong"[k] = i;
+        k = k + 1;
+    }
+}
+print(sum);
+
+let sum = 0;
+for idx in 0>k {
+    let m = split_into("orders"["wrong"[idx]], ",", "order");
+    for i in 0>m {
+         "order"[i] = num("order"[i]);
+    }
+
+    for i in 1>m {
+        for j in 0>i {
+            if "order"[i]["order"[j]] {
+                let temp = "order"[j];
+                "order"[j] = "order"[i];
+                "order"[i] = temp;
+            }
+        }
+    }
+    sum = sum + "order"[m / 2 - 0.5];
+}
+print(sum);
